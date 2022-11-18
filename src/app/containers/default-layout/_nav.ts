@@ -8,7 +8,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Customers',
-    url: '/theme/colors',
+    url: '/customers',
     iconComponent: { name: 'cil-people' }
   },
   {
@@ -19,7 +19,7 @@ export const navItems: INavData[] = [
  
   {
     name: 'Products',
-    url: '/buttons',
+    url: '/products',
     iconComponent: { name: 'cil-storage' }
   }
 ];
