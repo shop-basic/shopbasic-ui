@@ -1,6 +1,28 @@
 <div class="fade-in">
   <c-card class="mb-4">
-    <c-card-header>Products</c-card-header>
+    <c-card-header>
+      <c-container>
+        <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-start">
+            <h5>Products</h5> 
+        </div>
+        <div class="d-flex justify-content-end">
+          <button class="btn btn-primary btn-sm" type="button">Add Product</button>
+        </div>
+      </div>
+      </c-container>
+
+      <!-- <c-container>
+          <div class="d-flex float-start">
+            Products
+        </div>
+        <div class="d-flex float-end">
+          <button class="btn btn-primary btn-sm" type="button">Add Product</button>
+        </div>
+      </c-container> -->
+
+
+    </c-card-header>
     <c-card-body>
       <table [hover]="true" [responsive]="true" [striped]="false" align="middle" cTable class="mb-0 border">
         <thead cTableColor="light">
@@ -10,13 +32,10 @@
             </th>
             <th class="text-center">Name </th>
             <th class="text-center">Manufacturer</th>
-            <th class="text-center">Packaging</th>
-            <th class="text-center">Price</th>
-            <th class="text-center">Available Units</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let product of products; index as i">
+          <tr *ngFor="let product of products; index as i" >
             <td class="text-center">
               <c-avatar size="md" src="{{ product.avatar }}"></c-avatar>
             </td>
@@ -27,15 +46,6 @@
             </td>
             <td class="text-center">
               <div>{{ product.manufacturer }}</div>
-            </td>
-            <td class="text-center">
-              <div>{{ product.packagingQuantity }} {{ product.unit }} </div>
-            </td>
-            <td class="text-center">
-              <div>{{ product.price }} </div>
-            </td>
-            <td class="text-center">
-              <div>{{ product.availableQuantity }} </div>
             </td>
           </tr>
         </tbody>

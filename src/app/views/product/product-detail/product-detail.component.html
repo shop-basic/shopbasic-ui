@@ -1,15 +1,55 @@
 <div class="fade-in">
     <c-card class="mb-4">
-      <c-card-header>Products</c-card-header>
-      <c-card-body>
-        <c-row>
-            <c-col [xs]>
-              <input aria-label="First name" cFormControl placeholder="First name" />
+        <c-card-header>Product Details</c-card-header>
+        <c-card-body class="row g-3">
+            <c-col [md]="12">
+                <label cLabel>Name : {{product.name}}</label>
             </c-col>
-            <c-col [xs]>
-              <input aria-label="Last name" cFormControl placeholder="Last name" />
+            <c-col [md]="12">
+                <label cLabel>Manufacturer : {{product.manufacturer}}</label>
             </c-col>
-          </c-row>
-      </c-card-body>
+            <c-col [md]="12">
+                <label cLabel>Packaging : {{product.packagingQuantity}} {{product.unit}}</label>
+            </c-col>
+
+        </c-card-body>
     </c-card>
-  </div>
+    <c-card class="mb-4">
+        <c-card-header>Inventory</c-card-header>
+        <c-card-body class="row g-3">
+            <table [hover]="true" [responsive]="true" [striped]="false" align="middle" cTable class="mb-0 border">
+                <thead cTableColor="light">
+                    <tr>
+                        <th class="text-center">
+                            <svg cIcon name="cilPeople"></svg>
+                        </th>
+                        <th class="text-center">Name </th>
+                        <th class="text-center">Packaging</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Available Units</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products; index as i">
+                        <td class="text-center">
+                            <c-avatar size="md" src="{{ product.avatar }}"></c-avatar>
+                        </td>
+                        <td class="text-center">
+                            <div>{{ product.name }}</div>
+                        </td>
+                        <td class="text-center">
+                            <div>{{ product.packagingQuantity }} {{ product.unit }} </div>
+                        </td>
+                        <td class="text-center">
+                            <div>{{ product.price }} </div>
+                        </td>
+                        <td class="text-center">
+                            <div>{{ product.availableQuantity }} </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </c-card-body>
+    </c-card>
+</div>
