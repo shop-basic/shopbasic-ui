@@ -1,16 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Iproduct } from '../../../models/iproduct';
-
+import { Iproduct } from 'src/app/models/iproduct';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  selector: 'app-product-detail',
+  templateUrl: './product-detail.component.html',
+  styleUrls: ['./product-detail.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductDetailComponent implements OnInit {
 
-  constructor() { }
- 
   public products: Iproduct[] = [
     {
       name :'Product 1',
@@ -56,7 +53,9 @@ export class ProductListComponent implements OnInit {
       avatar : './assets/img/avatars/1.jpg',
       productId : 'P1',
     }
-  ]
+  ];
+  
+  constructor() { }
 
   ngOnInit(): void {
   }

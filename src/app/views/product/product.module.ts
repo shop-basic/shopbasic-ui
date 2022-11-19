@@ -17,6 +17,7 @@ import {
   TableModule,
   TabsModule
 } from '@coreui/angular';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -32,11 +33,13 @@ const routes: Routes = [
       },
       {
         path: 'products',
-        component: ProductListComponent,
-        data: {
-          title: 'Products'
-        }
+        component: ProductListComponent
+      },
+      {
+        path: ':id',
+        component: ProductDetailComponent,
       }
+
     ]
   }
 ];
@@ -44,7 +47,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ProductListComponent
+    ProductListComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
