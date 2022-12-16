@@ -12,15 +12,6 @@
       </div>
       </c-container>
 
-      <!-- <c-container>
-          <div class="d-flex float-start">
-            Products
-        </div>
-        <div class="d-flex float-end">
-          <button class="btn btn-primary btn-sm" type="button">Add Product</button>
-        </div>
-      </c-container> -->
-
 
     </c-card-header>
     <c-card-body>
@@ -32,6 +23,7 @@
             </th>
             <th class="text-center">Name </th>
             <th class="text-center">Manufacturer</th>
+            <th class="text-center">Category</th>
           </tr>
         </thead>
         <tbody>
@@ -41,11 +33,14 @@
             </td>
             <td class="text-center">
               <a [routerLink]="['/products', product.productId]">
-                <div>{{ product.name }}</div>
+                <div>{{ product.productName }}</div>
               </a>
             </td>
             <td class="text-center">
               <div>{{ product.manufacturer }}</div>
+            </td>
+            <td class="text-center">
+              <div>{{ product.category }}</div>
             </td>
           </tr>
         </tbody>

@@ -18,6 +18,7 @@ import {
   TabsModule
 } from '@coreui/angular';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
