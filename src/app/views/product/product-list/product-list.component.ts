@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Iproduct } from '../../../models/iproduct';
+import { Router } from '@angular/router';
+import { IProductList } from '../../../models/iproductlist';
+import { ProductService } from '../../../services/product.service';
 
 
 @Component({
@@ -9,56 +11,33 @@ import { Iproduct } from '../../../models/iproduct';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private productService : ProductService,
+              private router: Router) { }
  
-  public products: Iproduct[] = [
-    {
-      name :'Product 1',
-      price : 100,
-      packagingQuantity : 1,
-      availableQuantity : 100,
-      unit :'lt.',
-      activeFlag: true,
-      manufacturer: 'Manufacturer 1',
-      avatar : './assets/img/avatars/1.jpg',
-      productId : 'P1',
-    },
-    {
-      name :'Product 1',
-      price : 100,
-      packagingQuantity : 1,
-      availableQuantity : 100,
-      unit :'lt.',
-      activeFlag: true,
-      manufacturer: 'Manufacturer 1',
-      avatar : './assets/img/avatars/1.jpg',
-      productId : 'P1',
-    },
-    {
-      name :'Product 1',
-      price : 100,
-      packagingQuantity : 1,
-      availableQuantity : 100,
-      unit :'lt.',
-      activeFlag: true,
-      manufacturer: 'Manufacturer 1',
-      avatar : './assets/img/avatars/1.jpg',
-      productId : 'P1',
-    },
-    {
-      name :'Product 1',
-      price : 100,
-      packagingQuantity : 1,
-      availableQuantity : 100,
-      unit :'lt.',
-      activeFlag: true,
-      manufacturer: 'Manufacturer 1',
-      avatar : './assets/img/avatars/1.jpg',
-      productId : 'P1',
-    }
-  ]
+
+
+  public products: IProductList[] = [];
 
   ngOnInit(): void {
+    this.initializeProductList();
+  }
+
+  initializeProductList() : void {
+    this.productService.getAllProducts().subscribe(
+      data => {
+        this.products = data;
+      },
+      error => console.log(error)
+    )
+  }
+
+  onSaveComplete(): void {
+    // Reset back to pristine
+    // Navigate back to the product list
+}
+  addNewProduct() : void {
+    console.log('hello');
+    this.router.navigate(['/products/add']);
   }
 
 }
