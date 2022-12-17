@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProductList } from '../../../models/iproductlist';
 import { ProductService } from '../../../services/product.service';
 
@@ -10,7 +11,8 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService : ProductService,
+              private router: Router) { }
  
 
 
@@ -27,6 +29,15 @@ export class ProductListComponent implements OnInit {
       },
       error => console.log(error)
     )
+  }
+
+  onSaveComplete(): void {
+    // Reset back to pristine
+    // Navigate back to the product list
+}
+  addNewProduct() : void {
+    console.log('hello');
+    this.router.navigate(['/products/add']);
   }
 
 }

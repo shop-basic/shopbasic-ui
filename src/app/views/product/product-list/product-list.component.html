@@ -7,7 +7,7 @@
             <h5>Products</h5> 
         </div>
         <div class="d-flex justify-content-end">
-          <button class="btn btn-primary btn-sm" type="button">Add Product</button>
+          <button class="btn btn-primary btn-sm" type="button" (click)="addNewProduct()">Add Product</button>
         </div>
       </div>
       </c-container>
@@ -32,7 +32,7 @@
               <c-avatar size="md" src="{{ product.avatar }}"></c-avatar>
             </td>
             <td class="text-center">
-              <a [routerLink]="['/products', product.productId]">
+              <a [routerLink]="['/products/detail',  product.productId]">
                 <div>{{ product.productName }}</div>
               </a>
             </td>

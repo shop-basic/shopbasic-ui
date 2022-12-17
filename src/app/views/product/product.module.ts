@@ -19,6 +19,7 @@ import {
 } from '@coreui/angular';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 const routes: Routes = [
   {
@@ -33,14 +34,17 @@ const routes: Routes = [
         redirectTo: 'products'
       },
       {
-        path: 'products',
+        path: 'products', 
         component: ProductListComponent
       },
       {
-        path: ':id',
+        path: 'detail/:id',
         component: ProductDetailComponent,
+      },
+      {
+        path: 'add',
+        component: ProductFormComponent,
       }
-
     ]
   }
 ];
@@ -49,7 +53,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductFormComponent
   ],
   imports: [
     CommonModule,
