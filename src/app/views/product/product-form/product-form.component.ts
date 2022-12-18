@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-form',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductFormComponent implements OnInit {
 
-  constructor() { }
+  errorMessage : string;
+
+  constructor(private router : Router) { 
+    this.errorMessage = "";
+  }
  
   ngOnInit(): void {
+  }
+
+  cancel() : void {
+    this.router.navigate(['/products']);
+  }
+
+  saveProduct() : void {
+    
   }
 
 }
