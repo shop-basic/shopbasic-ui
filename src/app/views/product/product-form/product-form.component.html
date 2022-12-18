@@ -16,16 +16,16 @@
 
                 <fieldset>
                     <div class="mb-3">
-                        <label cLabel for="productName">Product Name</label>
-                        <input cFormControl id="productName" type="text" placeholder="Name (required)" required
+                        <label cLabel  for="productName">Product Name</label>
+                        <input cFormControl id="productName" type="text" placeholder="Name" required
                             minlength="3" name="productName" />
                     </div>
 
                     <div class="mb-3">
                         <label cLabel for="category">Category</label>
 
-                        <select id="category" name="category" aria-label="Default select example" cSelect>
-                            <option>Open this select menu</option>
+                        <select id="category" name="category" aria-label="select a Product Category" cSelect>
+                            <option>select category</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -36,7 +36,7 @@
                         <label cLabel for="manufacturer">Manufacturer</label>
 
                         <select id="manufacturer" name="manufacturer" aria-label="Default select example" cSelect>
-                            <option>Open this select menu</option>
+                            <option>select manufacturer</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
@@ -45,24 +45,19 @@
 
                     <div class="mb-3">
                         <label cLabel for="productDescription">Description</label>
-                        <textarea cFormControl id="productDescription" placeholder="description" rows="3"></textarea>
+                        <textarea cFormControl id="productDescription" placeholder="Description..." rows="3"></textarea>
 
                     </div>
                     <div class="mb-3">
-                        <label cLabel for="productCodeId">Image</label>
-                        <input cFormControl id="productCodeId" type="text" placeholder="Code (required)" required
-                            name="productCode" />
+                        <label cLabel for="imageUpload">Image</label>
+                        <input cFormControl id="imageUpload" type="file" />
                     </div>
-
-
-
 
                     <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
 
                     <div class="form-group">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <button cButton color="success" style="min-width:80px" type="submit">
-                                <!-- [disabled]='!editForm.valid'> -->
                                 Save
                             </button>
                             <button cButton color="warning" variant="ghost" style="min-width:80px" class="me-md-2"

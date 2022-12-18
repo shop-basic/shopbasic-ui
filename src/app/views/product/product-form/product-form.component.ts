@@ -22,7 +22,7 @@ export class ProductFormComponent implements OnInit {
   }
 
   saveProduct() : void {
-    
+    this.router.navigate(['/products']);
   }
 
 }
