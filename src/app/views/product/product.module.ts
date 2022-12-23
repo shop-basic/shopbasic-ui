@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { IconModule } from '@coreui/icons-angular';
+import { FormsModule }   from '@angular/forms';
 
 
 import {
@@ -15,10 +16,9 @@ import {
   NavModule,
   ProgressModule,
   TableModule,
-  TabsModule
+  TabsModule,
 } from '@coreui/angular';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ProductFormComponent } from './product-form/product-form.component';
 
 const routes: Routes = [
@@ -71,7 +71,8 @@ const routes: Routes = [
     ButtonModule,
     ButtonGroupModule,
     AvatarModule,
-    TableModule
+    TableModule,
+    FormsModule    
   ],
   exports: [RouterModule]
 })
