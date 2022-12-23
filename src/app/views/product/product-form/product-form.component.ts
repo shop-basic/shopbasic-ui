@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Iproductform } from 'src/app/models/iproductform';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -10,7 +13,15 @@ export class ProductFormComponent implements OnInit {
 
   errorMessage : string;
 
-  constructor(private router : Router) { 
+  productForm : Iproductform = { 
+      name : "",
+      category : "",
+      manufacturer : "",
+      description : ""
+  }
+
+  constructor(private router : Router,
+    private productService : ProductService) { 
     this.errorMessage = "";
   }
  
@@ -21,8 +32,20 @@ export class ProductFormComponent implements OnInit {
     this.router.navigate(['/products']);
   }
 
-  saveProduct() : void {
+  saveProduct(form : NgForm) : void {
+    
+    if(form.valid){
+      this.productService.saveNewProduct(this.productForm).subscribe(
+        result => console.log(result),
+        error => console.log(error)
+      );
+    } else {
+      // this.hasError = true
+      this.errorMessage = "Please resolve errors"
+    }
+    
     this.router.navigate(['/products']);
+
   }
 
 }

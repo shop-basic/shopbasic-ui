@@ -12,10 +12,10 @@
 
         </c-card-header>
         <c-card-body>
-            <form cForm novalidate (ngSubmit)="saveProduct()">
+            <form cForm novalidate #form="ngForm" (ngSubmit)="saveProduct(form)">
 
                 <fieldset>
-                    <div class="mb-3">
+                    <div class="mb-3"> 
                         <label cLabel  for="productName">Product Name</label>
                         <input cFormControl id="productName" type="text" placeholder="Name" required
                             minlength="3" name="productName" />
