@@ -2,8 +2,8 @@ export interface Iproductform {
 
 
     name : string,
-    category : string,
-    manufacturer : string,
+    categoryId : string,
+    manufacturerId : string,
     description : string
 
 }

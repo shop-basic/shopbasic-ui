@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Iproductform } from 'src/app/models/iproductform';
+import { Iproductformproperties } from 'src/app/models/iproductformproperties';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -13,10 +14,15 @@ export class ProductFormComponent implements OnInit {
 
   errorMessage : string;
 
+  formProperties : Iproductformproperties ={
+    categories : [],
+    manufacturers : []
+  };
+
   productForm : Iproductform = { 
       name : "",
-      category : "",
-      manufacturer : "",
+      categoryId : "",
+      manufacturerId : "",
       description : ""
   }
 
@@ -26,6 +32,16 @@ export class ProductFormComponent implements OnInit {
   }
  
   ngOnInit(): void {
+    this.initializeFormProperties();
+  }
+
+  initializeFormProperties() : void {
+    this.productService.loadFormProperties().subscribe(
+      data => {
+        this.formProperties = data;
+      },
+      error => console.log(error)
+    )
   }
 
   cancel() : void {
